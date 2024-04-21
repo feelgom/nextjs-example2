@@ -1,6 +1,7 @@
 "use client";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { app, auth, db } from "./../../firebase/firebase-app";
+import { auth } from "./../../firebase/firebase-app";
+import { FIREBASE_ERRORS } from "./../../firebase/error";
 
 export default function Login() {
   const handleSignUp = () => {
@@ -15,10 +16,9 @@ export default function Login() {
         // ...
       })
       .catch((error) => {
-        console.log("ERROR - ", error.code, " - ", error.message);
-        console.log("apikey - ", process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(FIREBASE_ERRORS[errorMessage])
         // ..
       });
   }
