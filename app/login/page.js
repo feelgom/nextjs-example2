@@ -2,6 +2,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./../../firebase/firebase-app";
 import { FIREBASE_ERRORS } from "./../../firebase/error";
+import { AuthProvider } from "./../../context/authProvider";
 
 export default function Login() {
   const handleSignUp = () => {
@@ -23,6 +24,9 @@ export default function Login() {
       });
   }
 
+  const user = AuthProvider;
+  console.log(user);
+  // console.log("login page. User email:", user);
   return (
     <div>
       <h4 className="title-sub">회원가입</h4>
